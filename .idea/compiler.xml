@@ -2,12 +2,34 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SpringBoot-CD" />
+        <module name="wildfly-ejb" />
+        <module name="product-web" />
+        <module name="wildfly-ejb-interfaces" />
+        <module name="product-ejb" />
+        <module name="wildfly-ear" />
+        <module name="wildfly-jpa" />
+        <module name="wildfly-mdb" />
+        <module name="widlfly-web" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="wildfly" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="product-ejb" options="-parameters" />
+      <module name="product-web" options="-parameters" />
+      <module name="widlfly-web" options="-parameters" />
+      <module name="wildfly-ejb" options="-parameters" />
+      <module name="wildfly-ejb-interfaces" options="-parameters" />
+      <module name="wildfly-jpa" options="-parameters" />
+      <module name="wildfly-mdb" options="-parameters" />
+    </option>
   </component>
 </project>

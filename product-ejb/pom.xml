@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>SpringBoot-CD</artifactId>
+        <groupId>ru.itmo</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <name>product-ejb</name>
+    <artifactId>product-ejb</artifactId>
+    <packaging>ejb</packaging>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <cargo-maven3-plugin.version>1.9.12</cargo-maven3-plugin.version>
+        <wildfly-maven-plugin.version>3.0.0.Final</wildfly-maven-plugin.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>2.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.2.3.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.2.Final</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <!-- mvn clean package cargo:run -Pwildfly-standalone -->
+        <profile>
+            <id>wildfly-standalone</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.cargo</groupId>
+                        <artifactId>cargo-maven3-plugin</artifactId>
+                        <version>${cargo-maven3-plugin.version}</version>
+                        <configuration>
+                            <container>
+                                <containerId>wildfly10x</containerId>
+                                <zipUrlInstaller>
+                                    <url>https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-26.1.1.Final.zip</url>
+                                </zipUrlInstaller>
+                            </container>
+                            <configuration>
+                                <properties>
+                                    <cargo.hostname>127.0.0.1</cargo.hostname>
+                                    <cargo.jboss.configuration>standalone-full</cargo.jboss.configuration>
+                                    <cargo.jboss.management-http.port>9990</cargo.jboss.management-http.port>
+                                    <cargo.servlet.users>testUser:admin1234!</cargo.servlet.users>
+                                </properties>
+                            </configuration>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <!--mvn clean install wildfly:deploy -Pwildfly-runtime -->
+        <profile>
+            <id>wildfly-runtime</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.wildfly.plugins</groupId>
+                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <version>${wildfly-maven-plugin.version}</version>
+                        <configuration>
+                            <hostname>127.0.0.1</hostname>
+                            <port>9990</port>
+                            <username>testUser</username>
+                            <password>admin1234!</password>
+                            <filename>${project.build.finalName}.jar</filename>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+</project>

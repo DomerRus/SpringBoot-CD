@@ -9,7 +9,7 @@ import javax.ejb.Remote;
 import java.util.List;
 import java.util.Optional;
 
-@Remote
+
 public interface ProductService {
 
     Optional<List<Product>> getProducts();

@@ -12,23 +12,31 @@ import ru.itmo.repository.OrganizationRepository;
 import ru.itmo.repository.ProductRepository;
 import ru.itmo.service.ProductService;
 
+import javax.ejb.EJB;
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
+import javax.interceptor.ExcludeDefaultInterceptors;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-@Stateless(name = "ProductService")
+@Stateless
+@Remote({ru.itmo.service.ProductService.class})
 @Service
+@ExcludeDefaultInterceptors
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
+    @EJB(beanName = "JpaRepository")
     private ProductRepository productRepository;
 
     @Autowired
+    @EJB(beanName = "JpaRepository")
     private OrganizationRepository organizationRepository;
 
     @Autowired
+    @EJB(beanName = "JpaRepository")
     private CoordinatesRepository coordinatesRepository;
 
 

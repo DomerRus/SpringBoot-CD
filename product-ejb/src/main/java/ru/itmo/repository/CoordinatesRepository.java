@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 import ru.itmo.model.Coordinates;
 
-@Component
+import javax.ejb.EJB;
+
 public interface CoordinatesRepository extends JpaRepository<Coordinates, Integer> {
 }

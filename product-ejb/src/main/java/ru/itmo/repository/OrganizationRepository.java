@@ -6,9 +6,9 @@ import org.springframework.stereotype.Service;
 import ru.itmo.model.Organization;
 import ru.itmo.model.enums.OrganizationType;
 
+import javax.ejb.EJB;
 import java.util.Optional;
 
-@Service
 public interface OrganizationRepository extends JpaRepository<Organization, Integer> {
 
     Optional<Organization> findByNameAndFullNameAndAndEmployeesCountAndType(String name,

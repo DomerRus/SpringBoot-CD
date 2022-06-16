@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 import ru.itmo.model.Product;
 import ru.itmo.model.enums.UnitOfMeasure;
 
+import javax.ejb.EJB;
 import java.util.List;
 
-@Component
 public interface ProductRepository extends JpaRepository<Product,Integer> {
     void deleteAllByUnitOfMeasure(UnitOfMeasure unitOfMeasure);
     List<Product> findAllByManufacturer_Id(Integer id);

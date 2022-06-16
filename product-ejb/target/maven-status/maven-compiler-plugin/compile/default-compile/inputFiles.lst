@@ -1,0 +1,15 @@
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/repository/ProductRepository.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/config/JpaConfig.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/web/ProductController.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/model/Count.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/service/impl/ProductServiceImpl.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/model/enums/UnitOfMeasure.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/repository/OrganizationRepository.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/ProductApplication.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/model/Organization.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/service/ProductService.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/model/enums/OrganizationType.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/config/JacksonConfiguration.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/model/Coordinates.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/repository/CoordinatesRepository.java
+/Users/markgrekov/Documents/GitHub/SpringBoot-CD/product-ejb/src/main/java/ru/itmo/model/Product.java

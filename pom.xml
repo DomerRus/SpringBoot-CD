@@ -17,7 +17,7 @@
     <modules>
         <module>product-web</module>
         <module>product-ejb</module>
-        <module>wildfly</module>
+        <module>product-boot</module>
     </modules>
 
     <properties>
@@ -102,31 +102,33 @@
         </dependencies>
     </dependencyManagement>
 
-    <repositories>
-        <repository>
-            <id>jboss-public-repository-group</id>
-            <name>JBoss Public Maven Repository Group</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public/</url>
-            <layout>default</layout>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>jboss-public-repository-group</id>-->
+<!--            <name>JBoss Public Maven Repository Group</name>-->
+<!--            <url>https://repository.jboss.org/nexus/content/groups/public/</url>-->
+<!--            <layout>default</layout>-->
+<!--            <releases>-->
+<!--                <enabled>true</enabled>-->
+<!--                <updatePolicy>never</updatePolicy>-->
+<!--            </releases>-->
+<!--            <snapshots>-->
+<!--                <enabled>true</enabled>-->
+<!--                <updatePolicy>never</updatePolicy>-->
+<!--            </snapshots>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
     <build>
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <artifactId>maven-ejb-plugin</artifactId>
-                    <version>${maven-ejb-plugin.version}</version>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
                     <configuration>
-                        <ejbVersion>${ejb.version}</ejbVersion>
+                        <image>
+                            <name>${project.artifactId}</name>
+                        </image>
                     </configuration>
                 </plugin>
             </plugins>

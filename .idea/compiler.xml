@@ -7,22 +7,26 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="product-boot" />
         <module name="wildfly-ejb" />
         <module name="product-web" />
         <module name="wildfly-ejb-interfaces" />
-        <module name="product-ejb" />
         <module name="wildfly-ear" />
+        <module name="product-ejb" />
         <module name="wildfly-jpa" />
         <module name="wildfly-mdb" />
         <module name="widlfly-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="product-boot1" target="17" />
       <module name="wildfly" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="product-boot" options="-parameters" />
+      <module name="product-boot1" options="-parameters" />
       <module name="product-ejb" options="-parameters" />
       <module name="product-web" options="-parameters" />
       <module name="widlfly-web" options="-parameters" />

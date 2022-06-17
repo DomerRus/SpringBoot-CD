@@ -8,9 +8,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <name>product-ejb</name>
-    <artifactId>product-ejb</artifactId>
     <packaging>ejb</packaging>
+
+    <artifactId>product-ejb</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -19,25 +19,31 @@
         <wildfly-maven-plugin.version>3.0.0.Final</wildfly-maven-plugin.version>
     </properties>
 
-
     <dependencies>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>2.6.4</version>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.hibernate.validator</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>6.2.3.Final</version>
-        </dependency>
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.4.2.Final</version>
+            <version>3.3.1.GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>3.4.0.GA</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
         </dependency>
     </dependencies>
-
     <profiles>
         <!-- mvn clean package cargo:run -Pwildfly-standalone -->
         <profile>
@@ -52,10 +58,15 @@
                         <artifactId>cargo-maven3-plugin</artifactId>
                         <version>${cargo-maven3-plugin.version}</version>
                         <configuration>
+<!--                            <container>-->
+<!--                                <containerId>wildfly10x</containerId>-->
+<!--                                zipF-->
+<!--                                <home>wildfly-26.1.1.Final</home>-->
+<!--                            </container>-->
                             <container>
                                 <containerId>wildfly10x</containerId>
                                 <zipUrlInstaller>
-                                    <url>https://github.com/wildfly/wildfly/releases/download/26.1.1.Final/wildfly-26.1.1.Final.zip</url>
+                                    <url>https://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final.zip</url>
                                 </zipUrlInstaller>
                             </container>
                             <configuration>
@@ -95,5 +106,26 @@
             </build>
         </profile>
     </profiles>
+
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>${maven-ejb-plugin.version}</version>
+                    <configuration>
+                        <!--                        <archive>-->
+                        <!--                            <manifestEntries>-->
+                        <!--                                <Dependencies>org.springframework.boot</Dependencies>-->
+                        <!--                            </manifestEntries>-->
+                        <!--                        </archive>-->
+                        <ejbVersion>${ejb.version}</ejbVersion>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+    </build>
 
 </project>

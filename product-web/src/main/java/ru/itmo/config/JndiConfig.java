@@ -1,11 +1,8 @@
 package ru.itmo.config;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import ru.itmo.service.ProductService;
-import ru.itmo.service.impl.ProductServiceImpl;
+import ru.itmo.service.ProductBean;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -28,15 +25,8 @@ public class JndiConfig {
 
 
     @Bean
-    public ProductService helloStatelessWorld(Context context) throws NamingException {
-        return (ProductService) context.lookup(this.getFullName(ProductService.class));
+    public ProductBean productBeanStateless(Context context) throws NamingException {
+        return (ProductBean) context.lookup("product-ejb/ProductBean!ru.itmo.service.ProductInterface");
     }
 
-    private String getFullName(Class classType) {
-        String moduleName = "product-ejb/";
-        String beanName = classType.getSimpleName();
-        String viewClassName = classType.getName();
-
-        return moduleName + beanName + "!" + viewClassName;
-    }
 }

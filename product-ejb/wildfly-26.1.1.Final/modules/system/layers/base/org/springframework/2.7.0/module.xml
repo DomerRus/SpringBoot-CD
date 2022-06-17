@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<module xmlns="urn:jboss:module:1.1"  name="org.springframework" slot="2.7.0">
+    <resources>
+        <resource-root path="spring-aspects-5.3.20.jar" />
+        <resource-root path="spring-aop-5.3.20.jar" />
+        <resource-root path="spring-beans-5.3.20.jar" />
+        <resource-root path="spring-context-5.3.20.jar" />
+        <resource-root path="spring-core-5.3.20.jar" />
+        <resource-root path="spring-expression-5.3.20.jar" />
+        <resource-root path="spring-web-5.3.20.jar" />
+        <resource-root path="spring-boot-2.7.0.jar"/>
+        <resource-root path="spring-boot-autoconfigure-2.7.0.jar"/>
+        <resource-root path="spring-boot-starter-2.7.0.jar"/>
+        <resource-root path="spring-boot-starter-aop-2.7.0.jar"/>
+        <resource-root path="spring-boot-starter-data-jpa-2.7.0.jar"/>
+        <resource-root path="spring-boot-starter-jdbc-2.7.0.jar"/>
+        <resource-root path="spring-boot-starter-json-2.7.0.jar"/>
+        <resource-root path="spring-boot-starter-logging-2.7.0.jar"/>
+        <resource-root path="spring-boot-starter-tomcat-2.7.0.jar"/>
+        <resource-root path="spring-boot-starter-web-2.7.0.jar"/>
+        <resource-root path="spring-data-commons-2.7.0.jar"/>
+        <resource-root path="spring-jcl-5.3.20.jar"/>
+        <resource-root path="spring-jdbc-5.3.20.jar"/>
+        <resource-root path="spring-orm-5.3.20.jar"/>
+        <resource-root path="spring-tx-5.3.20.jar"/>
+        <resource-root path="spring-webmvc-5.3.20.jar"/>
+    </resources>
+
+    <dependencies>
+        <module name="javaee.api"/>
+        <module name="org.apache.commons.logging"/>
+        <module name="org.jboss.vfs"/>
+        <module name="org.hibernate"/>
+        <module name="javax.el.api" export="true"/>
+        <module name="com.sun.xml.bind" export="true"/>
+    </dependencies>
+</module>

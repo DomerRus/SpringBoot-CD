@@ -1,3 +1,0 @@
-"{\"WFLYCTL0080: Failed services\" => {\"jboss.deployment.unit.\\\"product-ejb-1.0-SNAPSHOT.jar\\\".POST_MODULE\" => \"WFLYSRV0153: Failed to process phase POST_MODULE of deployment \\\"product-ejb-1.0-SNAPSHOT.jar\\\"
-    Caused by: java.lang.RuntimeException: WFLYSRV0177: Error getting reflective information for class ru.itmo.service.impl.ProductServiceImpl with ClassLoader ModuleClassLoader for Module \\\"deployment.product-ejb-1.0-SNAPSHOT.jar\\\" from Service Module Loader
-    Caused by: java.lang.NoClassDefFoundError: Failed to link ru/itmo/repository/ProductRepository (Module \\\"deployment.product-ejb-1.0-SNAPSHOT.jar\\\" from Service Module Loader): org/springframework/data/jpa/repository/JpaRepository\"}}"
